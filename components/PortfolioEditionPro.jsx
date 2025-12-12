@@ -2,10 +2,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
 const updates = [
-  { id: 'u1', title: 'Design system overhaul', tag: 'Design', summary: 'Built a token-driven system…', img: '/placeholders/project-1.jpg' },
-  { id: 'u2', title: 'Performance tuning', tag: 'Performance', summary: 'Cut LCP by 1.4s using edge caching…', img: '/placeholders/project-2.jpg' },
-  { id: 'u3', title: 'Headless storefront', tag: 'FrontEnd', summary: 'Built a CMS-driven Next.js storefront…', img: '/placeholders/project-3.jpg' },
-  { id: 'u4', title: 'AI assistant', tag: 'AI', summary: 'Mini assistant that generates content and tasks…', img: '/placeholders/project-4.jpg' }
+  { id: 'u1', title: 'Design system overhaul', tag: 'Design', summary: 'Built a token-driven system…', img: 'https://placehold.co/800x450?text=Project+1' },
+  { id: 'u2', title: 'Performance tuning', tag: 'Performance', summary: 'Cut LCP by 1.4s using edge caching…', img: 'https://placehold.co/800x450?text=Project+2' },
+  { id: 'u3', title: 'Headless storefront', tag: 'FrontEnd', summary: 'Built a CMS-driven Next.js storefront…', img: 'https://placehold.co/800x450?text=Project+3' },
+  { id: 'u4', title: 'AI assistant', tag: 'AI', summary: 'Mini assistant that generates content and tasks…', img: 'https://placehold.co/800x450?text=Project+4' }
 ];
 
 export default function PortfolioEditionPro() {
@@ -64,7 +64,7 @@ export default function PortfolioEditionPro() {
           transition={{duration:0.6}}
           className='relative rounded-3xl overflow-hidden shadow-2xl border border-black/5'
         >
-          <img src='/hero-bg.jpg' className='w-full h-96 object-cover' />
+          <img src='https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=80' className='w-full h-96 object-cover' />
           <div className='hero-overlay'></div>
 
           <div className='p-6 bg-white'>
