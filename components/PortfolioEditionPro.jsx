@@ -1,21 +1,17 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+﻿import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
-/*
-  Editions - Full Hero (A)
-  - External images are used so Vercel shows them immediately.
-  - Replace the external URLs later with your own uploads to /public.
-*/
+/* Fixed Edition-A component: corrected className usage inside map to avoid JSX parse errors */
 
 const UPDATES = [
-  { id: 'u1', title: 'Design system overhaul', tag: 'Design', summary: 'Built a token-driven system for consistent theming across products.', img: 'https://placehold.co/1200x700?text=Project+1' },
-  { id: 'u2', title: 'Performance tuning', tag: 'Performance', summary: 'Cut LCP by 1.4s and improved TTFB with edge caching.', img: 'https://placehold.co/1200x700?text=Project+2' },
-  { id: 'u3', title: 'Headless storefront', tag: 'FrontEnd', summary: 'Headless Next.js store with CMS-driven content.', img: 'https://placehold.co/1200x700?text=Project+3' },
-  { id: 'u4', title: 'AI assistant (Sidekick-style)', tag: 'AI', summary: 'Prompt-driven tool to generate content and tasks quickly.', img: 'https://placehold.co/1200x700?text=Project+4' }
+  { id: "u1", title: "Design system overhaul", tag: "Design", summary: "Built a token-driven system for consistent theming across products.", img: "https://placehold.co/1200x700?text=Project+1" },
+  { id: "u2", title: "Performance tuning", tag: "Performance", summary: "Cut LCP by 1.4s and improved TTFB with edge caching.", img: "https://placehold.co/1200x700?text=Project+2" },
+  { id: "u3", title: "Headless storefront", tag: "FrontEnd", summary: "Headless Next.js store with CMS-driven content.", img: "https://placehold.co/1200x700?text=Project+3" },
+  { id: "u4", title: "AI assistant (Sidekick-style)", tag: "AI", summary: "Prompt-driven tool to generate content and tasks quickly.", img: "https://placehold.co/1200x700?text=Project+4" }
 ];
 
 export default function PortfolioEditionPro() {
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState("All");
   const [active, setActive] = useState(null);
   const prefersReduced = useReducedMotion();
   const sceneRef = useRef(null);
@@ -27,20 +23,19 @@ export default function PortfolioEditionPro() {
       const rect = el.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-      el.style.setProperty('--mx', (x * 24).toFixed(2) + 'px');
-      el.style.setProperty('--my', (y * 14).toFixed(2) + 'px');
+      el.style.setProperty("--mx", (x * 24).toFixed(2) + "px");
+      el.style.setProperty("--my", (y * 14).toFixed(2) + "px");
     }
-    window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
   }, [prefersReduced]);
 
-  const filtered = UPDATES.filter(u => filter === 'All' ? true : u.tag === filter);
+  const filtered = UPDATES.filter(u => filter === "All" ? true : u.tag === filter);
 
   return (
     <div className="min-h-screen bg-edition-cream text-edition-ink antialiased">
       <div className="max-w-[1400px] mx-auto px-6 py-8">
         <div className="flex gap-6">
-          {/* Left chapter index */}
           <aside className="w-56 sticky top-6 hidden lg:block">
             <div className="mb-6 text-sm font-bold tracking-tight">The<br/>Renaissance<br/>Edition</div>
             <nav className="mt-8 text-sm opacity-85 space-y-4">
@@ -54,7 +49,6 @@ export default function PortfolioEditionPro() {
           </aside>
 
           <main className="flex-1">
-            {/* NAV */}
             <nav className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <div className="h-11 w-11 rounded-lg bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">XM</div>
@@ -72,10 +66,8 @@ export default function PortfolioEditionPro() {
               </div>
             </nav>
 
-            {/* HERO SECTION (Edition A) */}
             <section className="relative overflow-visible">
               <div ref={sceneRef} className="relative hero-scene">
-                {/* Full-bleed painting (external for now) */}
                 <div className="relative rounded-3xl hero-card overflow-hidden shadow-2xl">
                   <img
                     src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1600&q=60"
@@ -83,7 +75,6 @@ export default function PortfolioEditionPro() {
                     className="w-full h-[54vh] object-cover"
                   />
 
-                  {/* Foreground info card bottom */}
                   <div className="p-6 bg-white/95">
                     <div className="flex items-center justify-between">
                       <div className="text-xs opacity-70">Featured update</div>
@@ -94,12 +85,11 @@ export default function PortfolioEditionPro() {
                   </div>
                 </div>
 
-                {/* Floating cutouts (external images for demo) */}
                 <motion.img
                   src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=600&q=60"
                   alt="float left"
                   className="absolute left-6 bottom-8 w-64 rounded-lg transform-gpu z-30 float-left"
-                  style={{ translate: 'var(--mx,0) var(--my,0)' }}
+                  style={{ translate: "var(--mx,0) var(--my,0)" }}
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -109,16 +99,14 @@ export default function PortfolioEditionPro() {
                   src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=520&q=60"
                   alt="float right"
                   className="absolute right-8 top-10 w-56 rounded-lg transform-gpu z-20 float-right"
-                  style={{ translate: 'calc(var(--mx,0) * -0.5) calc(var(--my,0) * -0.5)' }}
+                  style={{ translate: "calc(var(--mx,0) * -0.5) calc(var(--my,0) * -0.5)" }}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.9, delay: 0.12 }}
                 />
 
-                {/* Grid overlay */}
                 <div className="absolute inset-0 pointer-events-none grid-overlay" />
 
-                {/* Left editorial headline */}
                 <div className="absolute left-8 top-10 max-w-xl text-edition-cream copy-shadow z-40">
                   <h1 className="text-5xl font-serif leading-tight text-edition-ink">
                     The <span className="italic">Renaissance</span> Edition of my portfolio — curated updates & product features
@@ -133,14 +121,18 @@ export default function PortfolioEditionPro() {
               </div>
             </section>
 
-            {/* UPDATES GRID */}
             <section id="updates" className="mt-16">
               <div className="flex items-center justify-between">
                 <h2 className="text-3xl font-semibold">Latest updates</h2>
                 <div className="flex gap-3">
-                  {['All','Design','Performance','FrontEnd','AI'].map(t => (
-                    <button key={t} onClick={() => setFilter(t)} className={px-3 py-1 rounded }>{t}</button>
-                  ))}
+                  {["All","Design","Performance","FrontEnd","AI"].map(t => {
+                    const cls = filter===t ? "px-3 py-1 rounded bg-black text-white" : "px-3 py-1 rounded bg-white border";
+                    return (
+                      <button key={t} onClick={() => setFilter(t)} className={cls}>
+                        {t}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
