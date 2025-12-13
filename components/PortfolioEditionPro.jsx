@@ -120,7 +120,7 @@ export default function PortfolioEditionPro() {
                 </div>
               </div>
             </section>
-
+              <FloatingNetwork />
             <section id="updates" className="mt-16">
               <div className="flex items-center justify-between">
                 <h2 className="text-3xl font-semibold">Latest updates</h2>
